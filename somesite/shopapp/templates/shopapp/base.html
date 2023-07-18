@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTf-8">
+    <title>
+        {% block title%}
+        Base title
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body %}
+Base body        
+{% endblock %}
+<div>
+    {% now 'i' as current_weekday %}
+    Сё!дня {{current_weekday}}
+</div>
+</body>
+</head>
