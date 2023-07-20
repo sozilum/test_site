@@ -1,8 +1,11 @@
 from timeit import default_timer
 from random import randint
 
+from django.contrib.auth.models import Group
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
+
+from .models import Product, Order
 
 def some_func(request: HttpRequest):
     products = [
@@ -16,3 +19,24 @@ def some_func(request: HttpRequest):
         'products': products,
     }
     return render(request, 'shopapp/shop.html', context= context)
+
+
+def group_list(request: HttpRequest):
+    context = {'Group': Group.objects.prefetch_related('permissions').all()
+
+    }
+    return render(request, 'shopapp/group-list.html', context=context)
+
+
+def product_list(request: HttpRequest):
+    context ={
+        'products': Product.objects.all()
+    }
+    return render(request, 'shopapp/product-list.html', context = context)
+
+
+def orders_list(request:HttpRequest):
+    context = {
+        'orders': Order.objects.select_related('user').prefetch_related('products').all()
+    }
+    return render(request, 'shopapp/order-list.html', context= context)
