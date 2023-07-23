@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 class Product(models.Model):
     class Meta:
         ordering =['name']
@@ -11,6 +12,17 @@ class Product(models.Model):
     discout = models.PositiveSmallIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
+
+    #Как работать с информаицей внутри полей
+    # @property
+    # def description_short(self) -> str:
+    #     if len(self.description) < 50:
+    #         return self.description
+    #     else:
+    #         return self.description[:50:] + '...'
+
+    def __str__(self) -> str:
+        return 'Product ({} {})'.format(self.pk, self.name)
 
 
 class Order(models.Model):

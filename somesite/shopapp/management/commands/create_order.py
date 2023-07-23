@@ -9,7 +9,7 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any) -> str | None:
         self.stdout.write('Создание заказа')
 
-        user = User.objects.get(username = 'admin')
+        user = User.objects.first()
 
         order = Order.objects.get_or_create(
             delivery_adress= 'ул. пушкина, дом калатушкина',
