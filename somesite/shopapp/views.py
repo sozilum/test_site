@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpRequest
 
 from .models import Product, Order
 
+#Обработка входных данных
 def some_func(request: HttpRequest):
     products = [
         ('Бибика', randint(0, 1000000)),
