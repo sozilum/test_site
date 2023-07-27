@@ -69,7 +69,7 @@ def create_order(request:HttpRequest):
     if request.method == 'POST':
         form = Orderform(request.POST)
         form.save()
-        return redirect('shopapp:order-list')
+        return redirect('shopapp:orders_list')
     
     else:
         form = Orderform()
