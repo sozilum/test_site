@@ -31,4 +31,8 @@
                 <h3>Покамест заказов нету</h3>
             </div>
         {% endif %}
+        <div>
+            <a href=" {% url 'shopapp:create_order' %} "
+            >back to create order</a>
+        </div>
 {% endblock %}

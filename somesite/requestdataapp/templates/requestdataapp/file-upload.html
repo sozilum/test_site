@@ -9,16 +9,17 @@
  <h1>Upload file</h1>
  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <p>
-        <input type="file" name="myfile">
-    </p>
+    {{ form.as_p }}
 
     <button type="submit">Upload</button>
  </form>
-{% if status == False %}
- <div>
-    <p>Ваш файл превышает максимальный размер</p>
-    <p>Максимальный размер 1mb</p>
- </div>
-{% endif %}
+<!-- {% if status == True %}
+    <p>	(」°ロ°)」</p>
+
+{% else %}
+    <div>
+        <p>Ваш файл превышает максимальный размер</p>
+        <p>Максимальный размер 1mb</p>
+    </div>
+{% endif %} -->
 {% endblock %}

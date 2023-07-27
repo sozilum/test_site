@@ -1,11 +1,14 @@
 from timeit import default_timer
 from random import randint
 
-from django.contrib.auth.models import Group
-from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
+# from django.urls import reverse
 
 from .models import Product, Order
+from .forms import ProductForm, Orderform
+
 
 #Обработка входных данных
 def some_func(request: HttpRequest):
@@ -41,3 +44,39 @@ def orders_list(request:HttpRequest):
         'orders': Order.objects.select_related('user').prefetch_related('products').all()
     }
     return render(request, 'shopapp/order-list.html', context= context)
+
+def create_product(request:HttpRequest) -> HttpResponse:
+    if request.method == 'POST':
+        # url = reverse("shopapp:product_list") ???
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            # name = form.cleaned_data['name']
+            # price = form.cleaned_data['price']
+            # Product.objects.create(**form.cleaned_data)
+            form.save()
+            return redirect("shopapp:product_list")
+    else:
+        form = ProductForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, 'shopapp/create-product.html', context= context)
+
+
+def create_order(request:HttpRequest):
+
+    if request.method == 'POST':
+        form = Orderform(request.POST)
+        form.save()
+        return redirect('shopapp:order-list')
+    
+    else:
+        form = Orderform()
+
+
+    context = {
+        'form':form
+    }
+
+    return render(request, 'shopapp/create-order.html', context= context)

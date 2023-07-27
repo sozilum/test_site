@@ -72,7 +72,7 @@ class throttling_middlware:
             total_time = time() - self.__user[ip]
             self.__user.update({ip:time()})
 
-            if total_time <= 1:
+            if total_time <= 0.1:
                 return False
             
             else:

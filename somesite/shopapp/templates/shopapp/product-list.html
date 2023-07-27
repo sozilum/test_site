@@ -23,5 +23,9 @@
             Нет продуктов
         </h3>
     {% endif %}
+    <div>
+        <a href="{% url 'shopapp:create_product' %}"
+        >create a new product</a>
+    </div>
 
 {% endblock %}
