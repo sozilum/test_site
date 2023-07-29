@@ -13,14 +13,6 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
 
-    #Как работать с информаицей внутри полей
-    # @property
-    # def description_short(self) -> str:
-    #     if len(self.description) < 50:
-    #         return self.description
-    #     else:
-    #         return self.description[:50:] + '...'
-
     def __str__(self) -> str:
         return 'Product ({} {})'.format(self.pk, self.name)
 

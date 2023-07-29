@@ -11,7 +11,8 @@
     <div>
         {% for i_name in products %}
         <div>
-            <p>Name: {{i_name.name}}</p>
+            <p><a href="{% url 'shopapp:product_detail' pk=i_name.pk %}"
+                > Name: {{i_name.name}} </a></p>
             <p>price: {{i_name.price}}</p>
             <p>discount: {% firstof i_name.discout 'Скидки нема' %}</p>
         </div>
@@ -24,7 +25,7 @@
         </h3>
     {% endif %}
     <div>
-        <a href="{% url 'shopapp:create_product' %}"
+        <a href="{% url 'shopapp:product_create' %}"
         >create a new product</a>
     </div>
 

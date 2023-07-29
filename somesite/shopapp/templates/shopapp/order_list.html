@@ -6,10 +6,12 @@
 
 {% block body %}
     <h1>Orders:</h1>
-        {% if orders %}
+        {% if order_list %}
             <div>
-                {% for i_name in orders %}
+                {% for i_name in order_list %}
                     <div>
+                        <a href="{% url 'shopapp:order_detail' pk=i_name.pk %}"
+                        >Detail #{{ i_name.pk }}</a>
                         <p>Order by:{% firstof i_name.user.first_name i_name.user.username %}</p>
                         <p>Promocode: <code>{{i_name.promocode}}</code></p>
                         <p>Address: {{ i_name.delivery_adress }}</p>
@@ -20,6 +22,7 @@
                             {% for i_item in i_name.products.all %}
                             <li>{{i_item.name}} for ${{i_item.price}}</li>
                             {% endfor %}
+                            <h1>---------------------------------</h1>
                         </ul>
 
                     </div>

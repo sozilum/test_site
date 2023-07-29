@@ -1,0 +1,32 @@
+{% extends 'shopapp/base.html' %}
+
+{% block title %}
+    Order №{{ object.pk }} delete
+{% endblock %}
+
+{% block body %}
+<h1>Sure delete order №{{ object.pk }}?</h1>
+<br>
+<div>
+    Product in order:
+    <ul>
+        {% for i_product in object.products.all %}
+        <li>{{ i_product.name }} for ${{ i_product.price }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<br>
+<div>
+    <a href="{% url 'shopapp:orders_list' %}"
+    >Back to order</a>
+</div>
+<br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"
+        >Delete</button>
+    </form>
+</div>
+{% endblock %}
