@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'shopapp.apps.ShopappConfig',
     'requestdataapp.apps.RequestdataappConfig',
+    'myauthapp.apps.MyauthConfig',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'requestdataapp.middlwares.set_useragent_on_requset_middlware',
     'requestdataapp.middlwares.CountRequestsMiddlwate',
-    # 'requestdataapp.middlwares.throttling_middlware',
+    # 'requestdataapp.middlwares.throttling_middlware', Закомичено так-как срабатывает при перенаправлениях 
 ]
 
 ROOT_URLCONF = 'somesite.urls'
@@ -127,3 +128,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/admin/'
