@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.urls import path
 from .views import (ShopIndexView, GroupListView,
                     ProductListView, OrderListView, 
@@ -14,7 +15,7 @@ urlpatterns = [
     path('groups/', GroupListView.as_view(), name = 'groups_list'),
 
     path('products/', ProductListView.as_view(), name = 'product_list'),
-    path('products/create/', ProductCreateView.as_view(), name = 'product_create'),
+    path('products/create/',  ProductCreateView.as_view(), name = 'product_create'),
     path('products/<int:pk>/', ProductDetailView.as_view(), name = 'product_detail'),
     path('products/<int:pk>/update/',ProductUpdateView.as_view(), name = 'product_update'),
     path('products/<int:pk>/confirm-delete/', ProductDeleteView.as_view(), name = 'product_delete'),

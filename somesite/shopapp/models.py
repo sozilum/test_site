@@ -12,6 +12,7 @@ class Product(models.Model):
     discout = models.PositiveSmallIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete= models.PROTECT, null= True)
 
     def __str__(self) -> str:
         return 'Product ({} {})'.format(self.pk, self.name)

@@ -1,11 +1,13 @@
+from django.forms.models import BaseModelForm
+from typing import Any, Callable, Dict, Optional
 from timeit import default_timer
-from typing import Any, Dict
 from random import randint
 
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.contrib.auth.models import Group
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import Group, User
 from django.urls import reverse_lazy
 from django.views import View
 
@@ -18,7 +20,7 @@ class ShopIndexView(View):
         products = [
             ('Бибика', randint(0, 1000000)),
             ('Телефончик', randint(0, 1000000)),
-            ('Креатив присутствует', randint(0, 1000000)    )
+            ('Креатив присутствует', randint(0, 1000000))
         ]
         context = {
             'time_running': default_timer(),
@@ -46,28 +48,45 @@ class GroupListView(View):
 
 class ProductDetailView(DetailView):
     template_name = 'shopapp/product-detail.html'
-    # model = Product
-    context_object_name = 'product'
-    queryset = Product.objects.filter(archived = False)
+    model = Product
+    fields = 'user', 'name', 'description', 'price', 'discout'
 
 
 class ProductListView(ListView):
     template_name = 'shopapp/product-list.html'
-    # model = Product
     context_object_name = 'products'
     queryset = Product.objects.filter(archived = False)
 
 
-#При наследовании от creaeview указывать суфикс шаблона form 
-class ProductCreateView(CreateView):
+class ProductCreateView(UserPassesTestMixin,CreateView):
+
+    def test_func(self) -> bool | None:
+        user = get_object_or_404(User, pk = self.request.user.pk)
+        if user.has_perm('shopapp.add_product'):
+            return True
+        return False
+
     model = Product
-    fields = 'name', 'price', 'description', 'discout'
+    fields = 'name', 'description', 'price', 'discout' 
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
     success_url = reverse_lazy('shopapp:product_list')
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(UserPassesTestMixin, UpdateView):
     model = Product
     fields = 'name', 'price', 'description', 'discout'
+    
+    def test_func(self) -> bool | None:
+        user = get_object_or_404(User, pk = self.request.user.pk)
+        if user.is_superuser or user.has_perm('shopapp.change_product') and Product.user == self.request.user:
+            return True
+        return False
+    
+
     #Так можно указать кастомный суфикс страницы и туда пересылать
     template_name_suffix = '_update_form'
 
@@ -90,14 +109,15 @@ class ProductDeleteView(DeleteView):
 
 
 #Имя по умолчанию формируеться по названию класса Order_list
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin, ListView):
     queryset = (Order.objects
                 .select_related('user')
                 .prefetch_related('products'))
     #Моно указать context для изменения имени обращения 
 
 
-class OrderDetailView(DetailView):
+class OrderDetailView(PermissionRequiredMixin, DetailView):
+        permission_required = 'shopapp.view_order'
         queryset = (Order.objects
                 .select_related('user')
                 .prefetch_related('products'))

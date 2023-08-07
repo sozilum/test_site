@@ -1,0 +1,20 @@
+{% extends 'myauthapp/base.html' %}
+
+{% block title %}
+    About me
+{% endblock %}
+
+{% block body %}
+    <h1>User info</h1>
+    {% if user.is_authenticated %}
+        <p>Username: {{ user.username }} </p>
+        <p>First name: {{ user.first_name }} </p>
+        <p>Last name: {{ user.last_name }} </p>
+        <p>Email: {{ user.email }} </p>
+        <p>Bio: {{ user.profiel.bio }} </p>
+    
+    {% else %}
+        <h2>User in anonymous</h2>
+    
+    {% endif %}
+{% endblock %}
