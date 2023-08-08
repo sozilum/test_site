@@ -58,11 +58,10 @@ class ProductListView(ListView):
     queryset = Product.objects.filter(archived = False)
 
 
-class ProductCreateView(UserPassesTestMixin,CreateView):
+class ProductCreateView(PermissionRequiredMixin,CreateView):
 
-    def test_func(self) -> bool | None:
-        user = get_object_or_404(User, pk = self.request.user.pk)
-        if user.has_perm('shopapp.add_product'):
+    def has_permission(self) -> bool | None:
+        if self.request.user.has_perm('shopapp.add_product'):
             return True
         return False
 
@@ -76,13 +75,12 @@ class ProductCreateView(UserPassesTestMixin,CreateView):
     success_url = reverse_lazy('shopapp:product_list')
 
 
-class ProductUpdateView(UserPassesTestMixin, UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = Product
     fields = 'name', 'price', 'description', 'discout'
     
-    def test_func(self) -> bool | None:
-        user = get_object_or_404(User, pk = self.request.user.pk)
-        if user.is_superuser or user.has_perm('shopapp.change_product') and Product.user == self.request.user:
+    def has_permission(self) -> bool:
+        if self.request.user.is_superuser or self.request.user.has_perm('shopapp.change_product') and self.get_object().user == self.request.user:
             return True
         return False
     
