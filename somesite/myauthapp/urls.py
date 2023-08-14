@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (cookie_get, set_cookie, 
                     get_session, set_session, 
                     MyLogoutView, AboutMeView,
-                    RegisterView)
+                    RegisterView, FooBarView)
 
 app_name = 'authapp'
 
@@ -21,5 +21,7 @@ urlpatterns = [
     path('session/set/', set_session, name = 'session-set'),
 
     path('about_me/', AboutMeView.as_view(), name = 'about_me'),
-    path('registration/', RegisterView.as_view(), name = 'register')   
+    path('registration/', RegisterView.as_view(), name = 'register'),
+
+    path('foo-bar/', FooBarView.as_view(), name = 'foo-bar')
 ]

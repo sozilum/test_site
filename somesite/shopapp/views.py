@@ -1,18 +1,17 @@
 from django.forms.models import BaseModelForm
-from typing import Any, Callable, Dict, Optional
 from timeit import default_timer
 from random import randint
 
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.models import Group, User
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
 from django.urls import reverse_lazy
 from django.views import View
 
-from .forms import ProductForm, Orderform, GroupForm
 from .models import Product, Order
+from .forms import GroupForm
 
 
 class ShopIndexView(View):
@@ -66,7 +65,7 @@ class ProductCreateView(PermissionRequiredMixin,CreateView):
         return False
 
     model = Product
-    fields = 'name', 'description', 'price', 'discout' 
+    fields = 'name', 'description', 'price', 'discout'
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         form.instance.user = self.request.user
@@ -142,3 +141,18 @@ class OrderUpdateView(UpdateView):
 class OrderDeleteView(DeleteView):
     model = Order
     success_url = reverse_lazy('shopapp:orders_list')
+
+
+class ProductDaaExportView(View):
+    def get(self, requests:HttpRequest) -> JsonResponse:
+        products = Product.objects.order_by('pk').all()
+        products_data = [
+            {
+                'pk': product.pk,
+                'name': product.name,
+                'price':product.price,
+                'archived':product.archived
+            }
+            for product in products
+        ]
+        return JsonResponse({'products': products_data})

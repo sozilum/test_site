@@ -1,6 +1,6 @@
-from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.db.models.options import Options
+from django.db.models import QuerySet
 
 import csv
 

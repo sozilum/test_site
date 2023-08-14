@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.views import LogoutView
 from django.forms.models import BaseModelForm
 from django.urls import reverse_lazy
+from django.views import View
 from .models import Profiel
 
 
@@ -58,3 +59,8 @@ def set_session(request: HttpRequest) -> HttpResponse:
 def get_session(request: HttpRequest) -> HttpResponse:
     value = request.session.get('foobar', 'default')
     return HttpResponse(f'Session value: {value!r}')
+
+
+class FooBarView(View):
+    def get(self, request: HttpRequest) -> JsonResponse:
+        return JsonResponse({'foo': 'bar', 'spam': 'eggs'})
