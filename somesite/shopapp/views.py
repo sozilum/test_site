@@ -143,16 +143,25 @@ class OrderDeleteView(DeleteView):
     success_url = reverse_lazy('shopapp:orders_list')
 
 
-class ProductDaaExportView(View):
+class OrderDataExportView(View):#PermissionRequiredMixin,
+    # def has_permission(self) -> bool:
+    #     if self.request.user.is_staff or self.request.user.is_superuser:
+    #         return True
+        
+    #     else:
+    #         return False
+
     def get(self, requests:HttpRequest) -> JsonResponse:
-        products = Product.objects.order_by('pk').all()
-        products_data = [
+
+        orders = Order.objects.order_by('pk').all()
+        orders_data = [
             {
-                'pk': product.pk,
-                'name': product.name,
-                'price':product.price,
-                'archived':product.archived
+                'pk': order.pk,
+                'user': order.user.pk,
+                'adress': order.delivery_adress,
+                'promocode': order.promocode,
+                'products':[product.pk for product in order.products.order_by('pk').all()]
             }
-            for product in products
+            for order in orders
         ]
-        return JsonResponse({'products': products_data})
+        return JsonResponse({'orders': orders_data})

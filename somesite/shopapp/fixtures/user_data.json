@@ -1,0 +1,139 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$pdvm2pZ02W81OBRzlZRtKX$MbWX+LvVdhnMZRsQ/8QmFTFlMOpXWHC2OiGWWCu95rc=",
+            "last_login": "2023-08-10T18:35:42.366Z",
+            "is_superuser": true,
+            "username": "verghil",
+            "first_name": "Джохан-похан",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-07-23T15:00:27Z",
+            "groups": [],
+            "user_permissions": [
+                25
+            ]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$Jqjkv1g2P9FFn2mkdcFJhr$T5xS/8ypzsgYLHSlYhFECSZSm4GjPSbavQE5Q36whFU=",
+            "last_login": "2023-08-07T19:49:08.918Z",
+            "is_superuser": false,
+            "username": "sozilum",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:06:38.219Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$BNwAa78wSRUGm66SdJrkdg$Apuur8nggxuG+e6A7vC9tWjc0u0okLtXPp+XEdLkfVA=",
+            "last_login": "2023-08-08T17:00:09.315Z",
+            "is_superuser": false,
+            "username": "puzca",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:14:04Z",
+            "groups": [
+                6
+            ],
+            "user_permissions": [
+                26,
+                28
+            ]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$hg6bEpwzXgxXjkWOINEAMp$Gj8EuP7Ouhk+u3ethA50ahRI3UqGlmd0Mk2zLJGmSgc=",
+            "last_login": "2023-08-03T17:36:25.404Z",
+            "is_superuser": false,
+            "username": "some_user",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:30:31.761Z",
+            "groups": [
+                5
+            ],
+            "user_permissions": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$BrLnmUajB2EssPsZdiBdfx$uOvM4Ia5wKbM37/9jdcReuirax3woGNYJCPP31fZ2js=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "someone_user",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:31:22.459Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$OY0IyMoNHb9mCYrEtiyDZc$s0LTlOWrAswLV8UGkbDZkLiDPqn/AqydrJ4Hc7/xJxU=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "some_pers",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:37:52.801Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$TS86czWYPjcsJuMgOSOF44$LfKZ8lj7LOW5FIeW0Nu2+DANc+buW2+PKS0a9qHenF4=",
+            "last_login": "2023-08-03T17:40:06.139Z",
+            "is_superuser": false,
+            "username": "some_perss",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-08-03T17:40:03.168Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

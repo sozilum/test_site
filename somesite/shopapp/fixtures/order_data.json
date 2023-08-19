@@ -1,0 +1,60 @@
+[
+    {
+        "model": "shopapp.order",
+        "pk": 1,
+        "fields": {
+            "delivery_adress": "ул. пушкина, дом калатушкина 5",
+            "promocode": "СУПЕПУПЕРРАСПРОДАЖА",
+            "created_at": "2023-07-23T15:05:46.423Z",
+            "user": 1,
+            "products": [
+                8,
+                1,
+                4,
+                3
+            ]
+        }
+    },
+    {
+        "model": "shopapp.order",
+        "pk": 2,
+        "fields": {
+            "delivery_adress": "qwe",
+            "promocode": "123",
+            "created_at": "2023-07-27T19:08:16.916Z",
+            "user": 1,
+            "products": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "shopapp.order",
+        "pk": 3,
+        "fields": {
+            "delivery_adress": "какой-то адрес",
+            "promocode": "1234",
+            "created_at": "2023-07-27T20:08:55.794Z",
+            "user": 1,
+            "products": [
+                5,
+                4,
+                2
+            ]
+        }
+    },
+    {
+        "model": "shopapp.order",
+        "pk": 4,
+        "fields": {
+            "delivery_adress": "some adress",
+            "promocode": "qwe123",
+            "created_at": "2023-07-27T20:11:21.252Z",
+            "user": 1,
+            "products": [
+                5,
+                4
+            ]
+        }
+    }
+]
