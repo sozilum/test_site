@@ -44,10 +44,12 @@ class OrderDetailTestCase(TestCase):
 class OrderExportTestCase(TestCase):
     fixtures = ['order_data.json',
                 'product_data.json',
-                'user_data.json']
+                'user_data.json',
+                'auth_group.json']
 
     @classmethod
     def setUpClass(cls) -> None:
+        super().setUpClass()
         cls.client = Client()
         cls.user = User.objects.create(username = 'dog2', password = make_password('123'))
 
@@ -69,7 +71,6 @@ class OrderExportTestCase(TestCase):
             )
         
         self.assertEqual(response.status_code, 200)
-
         orders = Order.objects.order_by('pk').all()
         expected_data = [
             {
