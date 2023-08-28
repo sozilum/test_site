@@ -10,8 +10,8 @@ from django.contrib.auth.models import Group
 from django.urls import reverse_lazy
 from django.views import View
 
-from .models import Product, Order
-from .forms import GroupForm
+from .models import Product, Order, ProductImage
+from .forms import GroupForm, ProductForm
 
 
 class ShopIndexView(View):
@@ -65,7 +65,7 @@ class ProductCreateView(PermissionRequiredMixin,CreateView):
         return False
 
     model = Product
-    fields = 'name', 'description', 'price', 'discout'
+    fields = 'name', 'description', 'price', 'discout', 'preview'
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         form.instance.user = self.request.user
@@ -76,7 +76,7 @@ class ProductCreateView(PermissionRequiredMixin,CreateView):
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = Product
-    fields = 'name', 'price', 'description', 'discout'
+    form_class = ProductForm
     
     def has_permission(self) -> bool:
         if self.request.user.is_superuser or self.request.user.has_perm('shopapp.change_product') and self.get_object().user == self.request.user:
@@ -92,6 +92,15 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
             'shopapp:product_detail',
             kwargs={'pk':self.object.pk},
         )
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        response = super().form_valid(form)
+        for image in form.files.getlist('images'):
+            ProductImage.objects.create(
+                product = self.object,
+                image = image
+            )
+        return response
 
 
 class ProductDeleteView(DeleteView):

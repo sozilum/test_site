@@ -15,6 +15,10 @@
                 > Name: {{i_name.name}} </a></p>
             <p>price: {{i_name.price}}</p>
             <p>discount: {% firstof i_name.discout 'Скидки нема' %}</p>
+
+                {% if i_name.preview %}
+                    <img src="{{ i_name.preview.url }}" alt="{{ i_name.preview.name }}">
+                {% endif %}
             <p>-----------------------------</p>
         </div>
         {% endfor %}

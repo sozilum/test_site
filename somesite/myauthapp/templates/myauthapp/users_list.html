@@ -1,0 +1,32 @@
+{% extends 'myauthapp/base.html' %}
+
+{% block title %}
+    Users list
+{% endblock %}
+
+
+{% block body %}
+    <h1>Users:</h1>
+    {% if profile %}
+
+    <div>
+        {% for i_user in profile %}
+        <div>
+            <p>pk: {{ i_user.pk }}</p>
+            <p>name: {{ i_user.username }}</p>
+            <p><a href="{% url 'authapp:about_me' pk=i_user.pk %}"
+                >User: {{ i_user.user }}</a></p>
+            <p>Avatar: <img src="{{ i_user.profile_image.url }}" alt=""></p>
+            <p>Bio: {{ i_user.bio }}</p>
+        </div>
+
+        <p>-----------------------------</p>
+        {% endfor %}
+    </div>
+
+    {% else %}
+        <h3>Покамест нету пользователей</h3>
+
+    {% endif %}
+
+{% endblock %}

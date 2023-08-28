@@ -7,7 +7,11 @@ from .models import Product, Order
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = 'name', 'price', 'description', 'discout'
+        fields = 'name', 'price', 'description', 'discout', 'preview'
+
+    images = forms.ImageField(
+        widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': True})
+    )
 
 class Orderform(forms.ModelForm):
     class Meta:

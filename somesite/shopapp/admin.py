@@ -3,16 +3,21 @@ from django.contrib import admin
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
 
+from .models import Product, Order, ProductImage
 from .admin_mixins import ExportAsCVSMixin
-from .models import Product, Order
 
+
+class ProductInline(admin.StackedInline):
+    model = ProductImage
 
 class OrderInline(admin.TabularInline):
     model = Product.orders.through
 
+
 @admin.action(description='Архивирование продуктов')
 def mark_archived(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
     queryset.update(archived =True)
+
 
 @admin.action(description='Разорхивирование продуктов')
 def mark_unarchived(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
@@ -27,7 +32,8 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCVSMixin):
         'export_csv',
     ]
     inlines = [
-        OrderInline
+        OrderInline,
+        ProductInline
     ]
     # list_display = 'pk', 'name', 'description', 'price', 'discout'
     list_display = 'pk', 'name', 'description_short', 'price', 'discout', 'archived'
@@ -47,6 +53,9 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCVSMixin):
             'fields': ('price', 'discout'),
             'classes': ('collapse', 'wide',)
         }),
+        ('images',
+            {'fields':('preview',)}
+         ),
         ('Extra options', {
             'fields':('archived',),
             'classes':('collapse',),

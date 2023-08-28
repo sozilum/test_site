@@ -1,17 +1,30 @@
+from typing import Any
+from django import http
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.http import HttpRequest, HttpResponse, JsonResponse
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LogoutView
 from django.forms.models import BaseModelForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import render
 from django.views import View
+
+
 from .models import Profiel
 
 
-class AboutMeView(TemplateView):
+class AboutMeView(UpdateView):
     template_name = 'myauthapp/about.html'
+    queryset = Profiel.objects.all()
+    context_object_name = 'profile'
+    fields = 'profile_image',
+    
+    def get_success_url(self) -> str:
+        return reverse('authapp:about_me',
+                       kwargs={'pk':int(self.object.pk)},
+                       )
 
 
 class RegisterView(CreateView):
@@ -34,8 +47,14 @@ class RegisterView(CreateView):
         return response
 
 
+class UsersListView(ListView):
+    template_name = 'myauthapp/users_list.html'
+    context_object_name = 'profile'
+    queryset = Profiel.objects.all()
+
+
 class MyLogoutView(LogoutView):
-    next_page = reverse_lazy('authapp:login')
+    next_page = reverse_lazy('authapp:users_list')
 
 
 def cookie_get(request: HttpRequest) -> HttpResponse:
@@ -54,6 +73,7 @@ def set_cookie(request:HttpRequest) -> HttpResponse:
 def set_session(request: HttpRequest) -> HttpResponse:
     request.session['foobar'] = 'eggs'
     return HttpResponse('Session set!')
+
 
 @login_required
 def get_session(request: HttpRequest) -> HttpResponse:

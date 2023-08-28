@@ -5,16 +5,38 @@
 {% endblock %}
 
 {% block body %}
-    <h1>User info</h1>
+    <h1>User {{ user.username }}</h1>
+
     {% if user.is_authenticated %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <h3>Avatar:</h3>
+        
+        <div>
+        {% if profile.profile_image %}
+            <p>Avatar: <img src="{{ profile.profile_image.url }}" alt=""></p>
+
+        {% else %}
+            <p>Картинки профиля пока-что нету</p>
+
+        {% endif %}  
+        </div>
+
+        {{ form.as_p }} 
+        <button type="submit"
+        >update</button>
+                
+        </form>
         <p>Username: {{ user.username }} </p>
         <p>First name: {{ user.first_name }} </p>
         <p>Last name: {{ user.last_name }} </p>
         <p>Email: {{ user.email }} </p>
-        <p>Bio: {{ user.profiel.bio }} </p>
-    
+        <p>Bio: {{ user.profile.bio }} </p>
+
     {% else %}
-        <h2>User in anonymous</h2>
-    
+            <h2>User in anonymous</h2>
+
+    <a href="{% url 'authapp:about_me' pk=object.pk %}"></a>
     {% endif %}
 {% endblock %}
