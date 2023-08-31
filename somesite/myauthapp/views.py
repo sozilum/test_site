@@ -11,7 +11,6 @@ from django.urls import reverse_lazy, reverse
 from django.shortcuts import render
 from django.views import View
 
-
 from .models import Profiel
 
 
@@ -20,10 +19,10 @@ class AboutMeView(UpdateView):
     queryset = Profiel.objects.all()
     context_object_name = 'profile'
     fields = 'profile_image',
-    
+
     def get_success_url(self) -> str:
         return reverse('authapp:about_me',
-                       kwargs={'pk':int(self.object.pk)},
+                       kwargs={'pk':int(self.get_object().pk)},
                        )
 
 

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>User {{ user.username }}</h1>
+    <h1>User {{ profile.user.username }}</h1>
 
     {% if user.is_authenticated %}
     <form method="post" enctype="multipart/form-data">
@@ -22,22 +22,26 @@
 
         {% endif %}  
         </div>
-
-        {{ form.as_p }} 
-        <button type="submit"
-        >update</button>
+        {% if user.pk == profile.user.pk or user.is_staff or user.is_superuser %}
+            {{ form.as_p }} 
+            <button type="submit"
+            >update</button>
+        {% endif%}
                 
         </form>
-        <p>pk: {{ user.pk }}</p>
-        <p>Username: {{ user.username }} </p>
-        <p>First name: {{ user.first_name }} </p>
-        <p>Last name: {{ user.last_name }} </p>
-        <p>Email: {{ user.email }} </p>
-        <p>Bio: {{ user.profile.bio }} </p>
+        <p>pk: {{ profile.user.pk }}</p>
+        <p>Username: {{ profile.user.username }} </p>
+        <p>First name: {{ profile.user.first_name }} </p>
+        <p>Last name: {{ profile.user.last_name }} </p>
+        <p>Email: {{ profile.user.email }} </p>
+        <p>Bio: {{ profile.user.profile.bio }} </p>
 
     {% else %}
             <h2>User in anonymous</h2>
 
     <a href="{% url 'authapp:about_me' pk=object.pk %}"></a>
     {% endif %}
+    
+    <a href="{% url 'authapp:users_list' %}"
+    >Back</a>
 {% endblock %}
