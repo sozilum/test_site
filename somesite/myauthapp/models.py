@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 def profiel_image_directory_path(instance: 'Profiel', filename: str) -> str:
     return 'user/user_{pk}/avatar/{filename}'.format(
         pk = instance.user.pk,

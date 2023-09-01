@@ -1,24 +1,29 @@
 from typing import Any
 from django import http
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from django.views.generic import CreateView, UpdateView, ListView
 from django.http import HttpRequest, HttpResponse, JsonResponse
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LogoutView
 from django.forms.models import BaseModelForm
 from django.urls import reverse_lazy, reverse
-from django.shortcuts import render
 from django.views import View
 
 from .models import Profiel
 
 
-class AboutMeView(UpdateView):
+class AboutMeView(PermissionRequiredMixin, UpdateView):
     template_name = 'myauthapp/about.html'
     queryset = Profiel.objects.all()
     context_object_name = 'profile'
     fields = 'profile_image',
+
+    def has_permission(self) -> bool:
+        if self.get_object().pk == self.request.user or self.request.user.is_staff or self.request.user.is_superuser:
+            return True
+        return False
 
     def get_success_url(self) -> str:
         return reverse('authapp:about_me',
