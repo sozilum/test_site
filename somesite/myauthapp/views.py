@@ -3,9 +3,10 @@ from django import http
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.views.generic import CreateView, UpdateView, ListView
 from django.http import HttpRequest, HttpResponse, JsonResponse
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.utils.translation import gettext as _, ngettext
 from django.contrib.auth.views import LogoutView
 from django.forms.models import BaseModelForm
 from django.urls import reverse_lazy, reverse
@@ -14,7 +15,22 @@ from django.views import View
 from .models import Profiel
 
 
-class AboutMeView(PermissionRequiredMixin, UpdateView):
+class HelloView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        welcome_message = _('Welcome Hello world!')
+        items_str = request.GET.get('items') or 0
+        items = int(items_str)
+        product_line = ngettext(
+            'one product',
+            '{count} products',
+            items,
+        )
+        products_line = product_line.format(count = items)
+        return HttpResponse(f"<h1>{welcome_message}</h1> \n<h2>{products_line}</h>",
+                            )
+
+
+class AboutMeView(UserPassesTestMixin, UpdateView):
     template_name = 'myauthapp/about.html'
     queryset = Profiel.objects.all()
     context_object_name = 'profile'

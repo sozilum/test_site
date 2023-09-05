@@ -4,7 +4,7 @@ from .views import (cookie_get, set_cookie,
                     get_session, set_session, 
                     MyLogoutView, AboutMeView,
                     RegisterView, FooBarView,
-                    UsersListView)
+                    UsersListView, HelloView)
 
 app_name = 'authapp'
 
@@ -14,6 +14,7 @@ urlpatterns = [
                         redirect_authenticated_user = True), 
                         name = 'login'),
     path('logout/',MyLogoutView.as_view(), name = 'logout'),
+    path('hello/', HelloView.as_view(), name = 'hello'),
     
     path('cookie/get/', cookie_get, name = 'cookie-get'),
     path('cookie/set/', set_cookie, name = 'cookie-set'),
