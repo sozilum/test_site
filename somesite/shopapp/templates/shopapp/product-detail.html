@@ -22,13 +22,13 @@
 
     <h3>{% translate "Image" %}:</h3>
 
+    {% blocktranslate count image_count=product.images.all|length %}
     <div>
-        {% blocktranslate count image_count=product.images.all|length %}
         There is only one image
         {% plural %}
         There are {{ image_count }} images
-        {% endblocktranslate %}
     </div>
+    {% endblocktranslate %}
     
     {% for img in product.images.all %}
     <div><img src="{{ img.image.url }}" alt="{{ img.image.name }}"></div>

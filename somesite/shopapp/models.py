@@ -12,9 +12,8 @@ def product_preview_directory_path(instance: 'Product', filename: str) -> str:
 class Product(models.Model):
     class Meta:
         ordering =['name']
-        #Так можно указать перевод внутри модели
-        verbose_name = _('Product')
-        # verbose_name_plural = _() ?
+        verbose_name = _('Продукт')
+        verbose_name_plural = _('Продукты')
 
     name = models.CharField(max_length=100)
     description = models.TextField(null=False, blank=True)
@@ -42,9 +41,9 @@ class ProductImage(models.Model):
 
 class Order(models.Model):
     class Meta:
-        pass
-        # verbose_name = _()
-        # verbose_name_plural = _()
+        verbose_name = _('Заказ')
+        verbose_name_plural = _('Заказы')
+
     delivery_adress = models.TextField(null=True, blank= True)
     promocode = models.CharField(max_length=20, null= False, blank= True)
     created_at = models.DateTimeField(auto_now_add=True)
