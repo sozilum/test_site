@@ -29,6 +29,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('shop/', include('shopapp.urls')),
     path('accounts/', include('myauthapp.urls')),
+    path('api/', include('myapiapp.urls')),
     )
 
 if settings.DEBUG:
