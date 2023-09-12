@@ -10,6 +10,12 @@ def product_preview_directory_path(instance: 'Product', filename: str) -> str:
 
 
 class Product(models.Model):
+    """
+    Модель Product представляет товар,
+    который можно продовать в магазине
+
+    Заказы тут: `shopapp.order`
+    """
     class Meta:
         ordering =['name']
         verbose_name = _('Продукт')
