@@ -31,6 +31,7 @@ urlpatterns += i18n_patterns(
     path('req/', include('requestdataapp.urls')),
     path('shop/', include('shopapp.urls')),
     path('accounts/', include('myauthapp.urls')),
+    path('article/', include('BlogApp.urls')),
     
     path('api/', include('myapiapp.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name ='schema'),
