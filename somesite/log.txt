@@ -1,0 +1,33 @@
+2023-09-21 20:04:32,641 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 20:04:39,905 [WARNING] django.request: Not Found: /
+2023-09-21 20:04:46,957 [INFO] shopapp.views: Rendering shop index
+2023-09-21 21:36:29,192 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-09-21 21:36:32,057 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 21:37:56,074 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-09-21 21:37:59,245 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 21:38:28,298 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-09-21 21:38:30,652 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 21:49:03,140 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 21:49:07,692 [WARNING] django.request: Not Found: /
+2023-09-21 21:49:13,631 [INFO] shopapp.views: Rendering shop index
+2023-09-21 21:49:20,605 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/somesite/settings.py changed, reloading.
+2023-09-21 21:49:30,516 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 21:49:43,488 [ERROR] django.request: Internal Server Error: /ru/shop/orders/export/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 253, in get
+    name = elem['uss']
+KeyError: 'uss'
+2023-09-21 21:51:19,932 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-09-21 21:51:29,925 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-24 20:01:11,908 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-09-24 20:01:19,139 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

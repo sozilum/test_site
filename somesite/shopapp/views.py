@@ -4,6 +4,7 @@
 Разные view магазина: по товарам, заказам и т.д.
 """
 
+import logging
 from django.forms.models import BaseModelForm
 from timeit import default_timer
 from random import randint
@@ -23,6 +24,8 @@ from drf_spectacular.utils import extend_schema, OpenApiResponse
 from .models import Product, Order, ProductImage
 from .forms import GroupForm, ProductForm
 from .serializers import ProductSerializer, OrderSerializer
+
+log = logging.getLogger(__name__)
 
 @extend_schema(description='Product views CRUD')
 class ProductViewSet(ModelViewSet):
@@ -96,6 +99,8 @@ class ShopIndexView(View):
             'products': products,
             'items': 1,
         }
+        log.debug('Products for shop index %s', products)
+        log.info('Rendering shop index')
         return render(request, 'shopapp/shop.html', context= context)
 
 
@@ -244,4 +249,7 @@ class OrderDataExportView(View):#PermissionRequiredMixin,
             }
             for order in orders
         ]
+        elem = orders_data[0]
+        name = elem['user']
+        print('name:', name)
         return JsonResponse({'orders': orders_data})

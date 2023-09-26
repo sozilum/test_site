@@ -16,6 +16,14 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://571f3f028731a09001b7e2b341db5b0c@o4505920631537664.ingest.sentry.io/4505920640057344",
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
+)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -26,7 +34,21 @@ SECRET_KEY = 'django-insecure-x60_dzrn=ma(+njiqg!t!8_+pm3&wtkp^9-j-4d=b*h&#v6i$(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    '127.0.0.1'
+]
+INTERNAL_IPS =[
+    '127.0.0.1'
+]
+
+if DEBUG:
+    import socket
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS.append('10.0.2.2')
+    INTERNAL_IPS.extend(
+        [ip[: ip.rfind('.')] + '.1' for ip in ips]
+    )
 
 
 # Application definition
@@ -40,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
     
+    'debug_toolbar',
     'rest_framework',
     'django_filters',
     'drf_spectacular',
@@ -63,6 +86,7 @@ MIDDLEWARE = [
     'requestdataapp.middlwares.CountRequestsMiddlwate',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # 'requestdataapp.middlwares.throttling_middlware', Закомичено так-как срабатывает при перенаправлениях 
 ]
 
@@ -173,24 +197,61 @@ SPECTACULAR_SETTINGS ={
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
+LOGFILE_NAME = BASE_DIR / 'log.txt'
+LOGFILE_SIZE = 5 * 1024 * 1024
+LOGFILE_COUNT = 3
+
 LOGGING = {
     'version':1,
-    'filters':{
-        'require_debug_true':{
-            '()':'django.utils.log.RequireDebugTrue',
+    'disable_existing_loggers':False,
+    'formatters':{
+        'verbose':{
+            'format':'%(asctime)s [%(levelname)s] %(name)s: %(message)s',
         },
     },
     'handlers':{
         'console':{
-            'level':'DEBUG',
-            'filters':['require_debug_true'],
             'class':'logging.StreamHandler',
-        }
+            'formatter':'verbose',
+        },
+        'logfile':{
+            #Для ротации по датам/дням
+            # 'class': 'logging.handlers.TimedRotatingFileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename':LOGFILE_NAME,
+            'maxBytes':LOGFILE_SIZE,
+            'backupCount':LOGFILE_COUNT,
+            'formatter':'verbose',
+        },
     },
-    'loggers':{
-        'django.db.backends':{
-            'level':'DEBUG',
-            'handlers':['console'],
-        }
+    'root':{
+        'handlers':[
+            'console',
+            'logfile',
+        ],
+        'level':'INFO',
     }
 }
+
+#Конфигурация для sql запросов
+# LOGGING = {
+#     'version':1,
+#     'filters':{
+#         'require_debug_true':{
+#             '()':'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'handlers':{
+#         'console':{
+#             'level':'DEBUG',
+#             'filters':['require_debug_true'],
+#             'class':'logging.StreamHandler',
+#         }
+#     },
+#     'loggers':{
+#         'django.db.backends':{
+#             'level':'DEBUG',
+#             'handlers':['console'],
+#         }
+#     }
+# }
