@@ -7,7 +7,7 @@ from .views import (ShopIndexView, GroupListView,
                     ProductUpdateView, ProductDeleteView,
                     OrderUpdateView, OrderDeleteView,
                     OrderDataExportView, ProductViewSet,
-                    OrderViewSet)#ProductDaaExportView
+                    OrderViewSet, LatestProductFeed)#ProductDaaExportView
 
 from rest_framework.routers import DefaultRouter
 
@@ -28,6 +28,7 @@ urlpatterns = [
     # path('products/export/', ProductDaaExportView.as_view(), name = 'products-export'),
     path('products/<int:pk>/update/',ProductUpdateView.as_view(), name = 'product_update'),
     path('products/<int:pk>/confirm-delete/', ProductDeleteView.as_view(), name = 'product_delete'),
+    path('products/latest/feed/', LatestProductFeed(), name = 'product_feed'),
 
     path('orders/', OrderListView.as_view(), name = 'orders_list'),
     path('orders/create/', OrderCreateView.as_view(), name = 'create_order'),

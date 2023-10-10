@@ -1,10 +1,18 @@
-from typing import Any
-from django.contrib import admin
+from io import TextIOWrapper
+from csv import DictReader
+
+from django.http import HttpResponse, HttpRequest
+from django.shortcuts import render, redirect
+from django.urls.resolvers import URLPattern
 from django.db.models.query import QuerySet
-from django.http.request import HttpRequest
+from django.contrib import admin
+from django.urls import path
+from typing import Any
 
 from .models import Product, Order, ProductImage
 from .admin_mixins import ExportAsCVSMixin
+from .forms import CSVImportForm
+from .utils import save_csv_product
 
 
 class ProductInline(admin.StackedInline):
@@ -26,6 +34,43 @@ def mark_unarchived(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin, ExportAsCVSMixin):
+    change_list_template = 'shopapp/products_changelist.html'
+
+    def import_csv(self, request:HttpRequest) -> HttpResponse:
+        if request.method == 'GET':
+            form = CSVImportForm()
+            context = {
+                'form':form,
+            }
+            return render(request, 'admin/csv_form.html', context)
+        form = CSVImportForm(request.POST, request.FILES)
+        
+        if not form.is_valid():
+            context ={
+                'form':form,
+            }
+            return render(request, 'admin/csv_form.html', context, status=400)
+
+        save_csv_product(
+            file=form.files['csv_file'].file,
+            encoding=request.encoding,
+        )
+
+        self.message_user(request, 'Data from CSV was imported')
+        return redirect('..')
+
+    def get_urls(self) -> list[URLPattern]:
+        urls =  super().get_urls()
+        new_urls = [
+            path(
+                'import_product_csv/',
+                self.import_csv,
+                name='import_products_csv'
+            ),
+        ]
+        return new_urls + urls
+
+
     actions =[
         mark_archived,
         mark_unarchived,

@@ -1,6 +1,7 @@
-from django.contrib.auth.models import User
-from django.db import models
 from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
+from django.urls import reverse
+from django.db import models
 
 def product_preview_directory_path(instance: 'Product', filename: str) -> str:
     return 'products/product_{pk}/preview/{filename}'.format(
@@ -32,6 +33,10 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return 'Product ({} {})'.format(self.pk, self.name)
+
+    def get_absolut_url(self):
+        return reverse('shopapp:product_detail', kwargs={'pk':self.pk})
+
 
 def product_image_directory_path(instance: 'ProductImage', filename: str) -> str:
     return 'products/product_{pk}/images/{filename}'.format(

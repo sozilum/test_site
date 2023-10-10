@@ -15,12 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
+from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.urls import path, include
 from django.conf import settings
 from django.contrib import admin
 
+from .sitemaps import sitemaps
 
 urlpatterns = []
 
@@ -31,12 +33,18 @@ urlpatterns += i18n_patterns(
     path('req/', include('requestdataapp.urls')),
     path('shop/', include('shopapp.urls')),
     path('accounts/', include('myauthapp.urls')),
-    path('article/', include('BlogApp.urls')),
+    path('blog/', include('BlogApp.urls')),
     
     path('api/', include('myapiapp.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name ='schema'),
     path('api/schema/swagger/', SpectacularSwaggerView.as_view(url_name = 'schema'), name ='swagger'),
-    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name = 'schema'), name = 'redoc')
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name = 'schema'), name = 'redoc'),
+    
+    path('sitemap.xml',
+        sitemap,
+        {'sitemaps':sitemaps}, 
+        name = 'django.contrib.sitemaps.views.sitemap'
+        ),
     )
 
 if settings.DEBUG:
