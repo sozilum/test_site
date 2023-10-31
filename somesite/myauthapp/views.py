@@ -3,14 +3,16 @@ from django import http
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.views.generic import CreateView, UpdateView, ListView
 from django.http import HttpRequest, HttpResponse, JsonResponse
+from django.utils.translation import gettext as _, ngettext
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
+from django.views.decorators.cache import cache_page
 from django.contrib.auth import authenticate, login
-from django.utils.translation import gettext as _, ngettext
 from django.contrib.auth.views import LogoutView
 from django.forms.models import BaseModelForm
 from django.urls import reverse_lazy, reverse
 from django.views import View
+from random import random
 
 from .models import Profiel
 
@@ -34,9 +36,9 @@ class AboutMeView(UserPassesTestMixin, UpdateView):
     template_name = 'myauthapp/about.html'
     queryset = Profiel.objects.all()
     context_object_name = 'profile'
-    fields = 'profile_image',
+    fields = ['profile_image']
 
-    def has_permission(self) -> bool:
+    def test_func(self) -> bool | None:
         if self.get_object().pk == self.request.user or self.request.user.is_staff or self.request.user.is_superuser:
             return True
         return False
@@ -76,10 +78,10 @@ class UsersListView(ListView):
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy('authapp:users_list')
 
-
+@cache_page(60 * 2)
 def cookie_get(request: HttpRequest) -> HttpResponse:
     value = request.COOKIES.get('fizz', 'default_value')
-    return HttpResponse(f'Cookie value: {value!r}')
+    return HttpResponse(f'Cookie value: {value!r} + {random()}')
 
 
 @user_passes_test(lambda user: user.is_superuser)

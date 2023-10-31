@@ -8,18 +8,24 @@ from timeit import default_timer
 from csv import DictWriter
 from random import randint
 import logging
+from typing import Any
 from django.db.models.base import Model
+from django.db.models.query import QuerySet
 from django.utils.safestring import SafeText
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django_filters.rest_framework import DjangoFilterBackend
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 from django.contrib.syndication.views import Feed
 from django.forms.models import BaseModelForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group
 from django.urls import reverse_lazy
+from django.core.cache import cache
+from django.http import Http404
 from django.views import View
 
 from drf_spectacular.utils import extend_schema, OpenApiResponse
@@ -64,6 +70,11 @@ class ProductViewSet(ModelViewSet):
         'price',
         'discout'
     ]
+
+    @method_decorator(cache_page(60 * 3))
+    def list(self, *args, **kwargs):
+        print('hello products list')
+        return super().list(*args, **kwargs)
 
     @extend_schema(
         summary='Get one product by id',
@@ -135,6 +146,8 @@ class OrderViewSet(ModelViewSet):
 
 
 class ShopIndexView(View):
+
+    # @method_decorator(cache_page(60 * 3))
     def get(self, request: HttpRequest) -> HttpResponse:
         products = [
             ('Бибика', randint(0, 1000000)),
@@ -148,6 +161,7 @@ class ShopIndexView(View):
         }
         log.debug('Products for shop index %s', products)
         log.info('Rendering shop index')
+        print('shop index conext', context)
         return render(request, 'shopapp/shop.html', context= context)
 
 
@@ -284,20 +298,24 @@ class OrderDataExportView(View):#PermissionRequiredMixin,
     #         return False
 
     def get(self, requests:HttpRequest) -> JsonResponse:
-
-        orders = Order.objects.order_by('pk').all()
-        orders_data = [
-            {
-                'pk': order.pk,
-                'user': order.user.pk,
-                'adress': order.delivery_adress,
-                'promocode': order.promocode,
-                'products':[product.pk for product in order.products.order_by('pk').all()]
-            }
-            for order in orders
-        ]
-        elem = orders_data[0]
-        name = elem['user']
+        cache_key = 'order_data_export'
+        orders_data = cache.get(cache_key)
+        
+        if orders_data is None: 
+            orders = Order.objects.order_by('pk').all()
+            orders_data = [
+                {
+                    'pk': order.pk,
+                    'user': order.user.pk,
+                    'adress': order.delivery_adress,
+                    'promocode': order.promocode,
+                    'products':[product.pk for product in order.products.order_by('pk').all()]
+                }
+                for order in orders
+            ]
+            elem = orders_data[0]
+            name = elem['user']
+            cache.set(cache_key, orders_data, 300)
         print('name:', name)
         return JsonResponse({'orders': orders_data})
     
@@ -320,3 +338,47 @@ class LatestProductFeed(Feed):
     
     def item_description(self, item: Model) -> str:
         return item.description[:30:]
+    
+#Не понимаю
+class UserOrderListView(LoginRequiredMixin, ListView):
+    template_name = 'shopapp/user-orders.html'
+    model = Order
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        self.owner = self.request.user
+        queryset = super().get_queryset()
+        return queryset.filter(user = self.owner)
+
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = {
+            'user':self.owner,
+            'query_data': kwargs
+        }
+        return context
+    
+
+class UserOrderExportView(LoginRequiredMixin, View):
+    template_name = 'shopapp/user-orders-export.html'
+
+    def get(self, request: HttpRequest, user_id:int) -> HttpResponse:
+        cache_key = 'order_data_export'
+        orders_data = cache.get(cache_key)
+
+        if orders_data is None and self.request.user.pk == user_id: 
+            orders = Order.objects.order_by('pk').all()
+            orders_data = [
+                {
+                    'pk': order.pk,
+                    'user': order.user.pk,
+                    'adress': order.delivery_adress,
+                    'promocode': order.promocode,
+                    'products':[product.pk for product in order.products.order_by('pk').all()]
+                }
+                for order in orders
+            ]
+            cache.set(cache_key, orders_data, 300)
+        else:
+            raise Http404()
+
+        return JsonResponse({'orders': orders_data})

@@ -1,0 +1,29 @@
+{% extends 'shopapp/base.html' %}
+{% load cache %}
+
+{% block title %}
+    User №{{ object.user.id }} Orders 
+{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1>Эта страница заказов пользователя</h1>
+    </div>
+
+    <div>
+        <h2>Имя пользователя: {{ object.username }}</h2>
+        <p>Заказы:</p> 
+        
+        {% cache 300 orderinfo object.user.pk %}
+        
+        {% for data in object.query_data %} 
+            <ul>
+                <li>{{ data }}</li>
+            </ul>
+        {% endfor %}
+        {% endcache %}
+    </div>
+
+
+{% endblock %}

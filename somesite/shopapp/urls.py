@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from rest_framework.routers import DefaultRouter
 from django.urls import path, include
+
 from .views import (ShopIndexView, GroupListView,
                     ProductListView, OrderListView, 
                     ProductCreateView, OrderCreateView, 
@@ -7,9 +9,8 @@ from .views import (ShopIndexView, GroupListView,
                     ProductUpdateView, ProductDeleteView,
                     OrderUpdateView, OrderDeleteView,
                     OrderDataExportView, ProductViewSet,
-                    OrderViewSet, LatestProductFeed)#ProductDaaExportView
-
-from rest_framework.routers import DefaultRouter
+                    OrderViewSet, LatestProductFeed,
+                    UserOrderListView, UserOrderExportView)#ProductDaaExportView
 
 app_name = 'shopapp'
 #Так подключить сериализаторы
@@ -18,9 +19,12 @@ routers.register('products', ProductViewSet)
 routers.register('orders',OrderViewSet)
 
 urlpatterns = [
+    # path('', cache_page(60 * 2)(ShopIndexView.as_view()), name = 'shop'),
     path('', ShopIndexView.as_view(), name = 'shop'),
     path('groups/', GroupListView.as_view(), name = 'groups_list'),
     path('api/', include(routers.urls)),
+    path('users/<int:user_id>/orders/', UserOrderListView.as_view(), name = 'user_orders'),
+    path('users/<int:user_id>/orders/export/', UserOrderExportView.as_view(), name = 'user_orders_export'),
 
     path('products/', ProductListView.as_view(), name = 'product_list'),
     path('products/create/',  ProductCreateView.as_view(), name = 'product_create'),
