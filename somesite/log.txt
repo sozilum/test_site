@@ -2439,3 +2439,343 @@ RuntimeError: No active exception to reraise
 2023-10-31 20:30:59,948 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-10-31 20:38:53,351 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
 2023-10-31 20:38:59,978 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:40:15,011 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:40:59,223 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:41:05,956 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:41:15,146 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:41:21,694 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:43:01,516 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:43:08,604 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:43:21,037 [WARNING] django.request: Not Found: /
+2023-11-02 19:43:25,459 [WARNING] django.request: Not Found: /ru/
+2023-11-02 19:43:36,652 [WARNING] django.request: Not Found: /ru/shop/users/1/
+2023-11-02 19:51:26,031 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'object.user.username'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: 'object.user.username', expected 'endblock'. Did you forget to register or load this tag?
+2023-11-02 19:52:56,864 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:53:03,715 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:53:18,372 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:53:25,744 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:55:22,610 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:55:29,576 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 19:55:44,992 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 19:55:51,945 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:00:11,672 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:00:18,592 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:01:38,467 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    context_data = [
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 357, in <listcomp>
+    'adress': data.delivery_adress,
+AttributeError: 'str' object has no attribute 'delivery_adress'
+2023-11-02 20:02:00,199 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:02:06,534 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:02:13,905 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    context_data = [
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 357, in <listcomp>
+    'adress': data.delivery_adress,
+AttributeError: 'str' object has no attribute 'delivery_adress'
+2023-11-02 20:02:18,380 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    context_data = [
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 357, in <listcomp>
+    'adress': data.delivery_adress,
+AttributeError: 'str' object has no attribute 'delivery_adress'
+2023-11-02 20:03:02,434 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:03:09,490 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:03:15,361 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    context_data = [
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 357, in <listcomp>
+    'adress': data['delivery_adress'],
+TypeError: string indices must be integers
+2023-11-02 20:03:17,000 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    context_data = [
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 357, in <listcomp>
+    'adress': data['delivery_adress'],
+TypeError: string indices must be integers
+2023-11-02 20:04:46,462 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:04:52,964 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:06:25,573 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:06:31,743 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:07:11,437 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:07:18,009 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:08:29,087 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:08:35,660 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:13:09,833 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endcache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/templatetags/cache.py", line 84, in do_cache
+    nodelist = parser.parse(("endcache",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 35: 'endcache', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+2023-11-02 20:17:38,808 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:17:46,639 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:18:29,627 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:18:37,153 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:19:43,922 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:19:51,004 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:20:31,355 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:20:39,438 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:21:10,931 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:21:17,825 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:21:40,047 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:21:46,268 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:21:53,443 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:22:00,475 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:23:06,439 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:23:13,200 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:23:22,213 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:23:28,856 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:25:28,518 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:25:35,447 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:27:00,990 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:27:07,504 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-02 20:32:30,291 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 1372, in url
+    viewname = parser.compile_filter(bits[1])
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':user_orders_export' from 'shopapp:user_orders_export'
+2023-11-02 20:34:26,412 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-02 20:34:33,048 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

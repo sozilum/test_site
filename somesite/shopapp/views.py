@@ -339,30 +339,35 @@ class LatestProductFeed(Feed):
     def item_description(self, item: Model) -> str:
         return item.description[:30:]
     
-#Не понимаю
+
 class UserOrderListView(LoginRequiredMixin, ListView):
     template_name = 'shopapp/user-orders.html'
     model = Order
     
     def get_queryset(self) -> QuerySet[Any]:
-        self.owner = self.request.user
         queryset = super().get_queryset()
-        return queryset.filter(user = self.owner)
-
-
+        queryset.filter(user = self.request.user)
+        
+        queryset_data = [
+                {
+                    'pk': order.pk,
+                    'adress': order.delivery_adress,
+                    'promocode': order.promocode,
+                }
+                for order in queryset
+            ]
+        return queryset_data
+        
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = {
-            'user':self.owner,
-            'query_data': kwargs
-        }
+        context = {'data':super().get_context_data(**kwargs),
+                   'user': self.request.user}
         return context
-    
+
 
 class UserOrderExportView(LoginRequiredMixin, View):
-    template_name = 'shopapp/user-orders-export.html'
 
     def get(self, request: HttpRequest, user_id:int) -> HttpResponse:
-        cache_key = 'order_data_export'
+        cache_key = 'order_data_export_{}'.format(user_id)
         orders_data = cache.get(cache_key)
 
         if orders_data is None and self.request.user.pk == user_id: 

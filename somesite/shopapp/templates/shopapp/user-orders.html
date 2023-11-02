@@ -2,28 +2,37 @@
 {% load cache %}
 
 {% block title %}
-    User №{{ object.user.id }} Orders 
+    User №{{ user.pk }} Orders 
 {% endblock %}
 
 {% block body %}
 
-    <div>
+    <header>
         <h1>Эта страница заказов пользователя</h1>
-    </div>
+    </header>
 
-    <div>
-        <h2>Имя пользователя: {{ object.username }}</h2>
+
+    <section>
+        <h2>Имя пользователя: {{ user.username }}</h2>
         <p>Заказы:</p> 
         
-        {% cache 300 orderinfo object.user.pk %}
+        {% cache 300 orderinfo user.pk %}
         
-        {% for data in object.query_data %} 
+        {% if data.object_list %}
+            {% for order_data in data.object_list %}
             <ul>
-                <li>{{ data }}</li>
+                <li>
+                    <p>Номер заказа: {{ order_data.pk }}</p>
+                    <p>Адрес: {{ order_data.adress }}</p>
+                    <p>Прокод: {{ order_data.promocode }}</p>
+                </li>
             </ul>
-        {% endfor %}
+            {% endfor %}
+            
+        {% else %}
+            <h2>Ещё нету заказов</h2>
+        {% endif %}
         {% endcache %}
-    </div>
-
+    </section>
 
 {% endblock %}
