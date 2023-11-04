@@ -2779,3 +2779,325 @@ Traceback (most recent call last):
 django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':user_orders_export' from 'shopapp:user_orders_export'
 2023-11-02 20:34:26,412 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
 2023-11-02 20:34:33,048 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:11:19,901 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:11:55,527 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 349, in get_queryset
+    return queryset.filter(self.request.user)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1534, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1565, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1412, in build_filter
+    arg, value = filter_expr
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not iterable
+2023-11-04 17:14:58,206 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:15:04,818 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:19:27,368 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:19:34,812 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:19:53,992 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:20:02,103 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:22:25,574 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/templatetags/cache.py", line 84, in do_cache
+    nodelist = parser.parse(("endcache",))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 37: 'else', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+2023-11-04 17:22:37,469 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/templatetags/cache.py", line 53, in render
+    value = self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 193, in render
+    values = list(values)
+TypeError: 'ManyRelatedManager' object is not iterable
+2023-11-04 17:22:47,862 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/templatetags/cache.py", line 53, in render
+    value = self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 193, in render
+    values = list(values)
+TypeError: 'ManyRelatedManager' object is not iterable
+2023-11-04 17:29:01,181 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:29:07,508 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:29:26,616 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:29:32,594 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:29:41,585 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:29:47,524 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:30:32,643 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:30:39,315 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:32:10,491 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 362, in get
+    default= orders_data,
+UnboundLocalError: local variable 'orders_data' referenced before assignment
+2023-11-04 17:32:35,804 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:32:43,603 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:33:13,722 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:33:21,626 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:33:26,295 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 361, in get
+    if orders_data is None and self.request.user.pk == user_id:
+UnboundLocalError: local variable 'orders_data' referenced before assignment
+2023-11-04 17:35:04,507 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:35:10,617 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:35:33,480 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 376, in get
+    orders_data = cache.get_or_set(cache_key= f'order_data_export_{user_id}',
+  File "/home/verghil/.local/lib/python3.10/site-packages/debug_toolbar/panels/cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/debug_toolbar/panels/cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+TypeError: BaseCache.get_or_set() got an unexpected keyword argument 'cache_key'
+2023-11-04 17:36:07,328 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:36:14,689 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:36:59,509 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-04 17:37:05,937 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-04 17:37:19,485 [WARNING] django.request: Not Found: /favicon.ico

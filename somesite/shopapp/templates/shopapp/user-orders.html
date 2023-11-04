@@ -2,7 +2,7 @@
 {% load cache %}
 
 {% block title %}
-    User №{{ user.pk }} Orders 
+    User №{{ request.user.pk }} Orders 
 {% endblock %}
 
 {% block body %}
@@ -13,19 +13,25 @@
 
 
     <section>
-        <h2>Имя пользователя: {{ user.username }}</h2>
+        <h2>Имя пользователя: {{ request.user }}</h2>
         <p>Заказы:</p> 
         
-        {% cache 300 orderinfo user.pk %}
+        {% cache 300 orderinfo request.user.pk %}
         
         {% if data.object_list %}
             {% for order_data in data.object_list %}
             <ul>
                 <li>
                     <p>Номер заказа: {{ order_data.pk }}</p>
-                    <p>Адрес: {{ order_data.adress }}</p>
+                    <p>Адрес: {{ order_data.delivery_adress }}</p>
                     <p>Прокод: {{ order_data.promocode }}</p>
                 </li>
+                <p>Продукты в заказе:</p>
+                {% for product in order_data.products.all %}
+                <ul>
+                    <li>{{ product.name }}</li>
+                </ul>
+                {% endfor %}
             </ul>
             {% endfor %}
             
