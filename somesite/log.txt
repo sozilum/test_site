@@ -3101,3 +3101,22 @@ TypeError: BaseCache.get_or_set() got an unexpected keyword argument 'cache_key'
 2023-11-04 17:36:59,509 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
 2023-11-04 17:37:05,937 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-11-04 17:37:19,485 [WARNING] django.request: Not Found: /favicon.ico
+2023-11-07 20:01:50,713 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:01:54,753 [WARNING] django.request: Not Found: /
+2023-11-07 20:01:55,530 [WARNING] django.request: Not Found: /favicon.ico
+2023-11-07 20:04:24,334 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:04:31,222 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:04:49,313 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:04:56,150 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:05:08,348 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:05:16,296 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:07:55,504 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:08:02,838 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:10:11,594 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:10:18,210 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:11:35,744 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:11:44,190 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:14:08,035 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:14:14,680 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-07 20:15:00,892 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-07 20:15:07,408 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

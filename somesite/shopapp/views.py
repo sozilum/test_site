@@ -346,11 +346,13 @@ class UserOrderListView(LoginRequiredMixin, ListView):
     
     def get_queryset(self) -> QuerySet[Any]:
         queryset = super().get_queryset()
-        return queryset.filter(user = self.request.user).prefetch_related('products')
+        self.owner = self.request.user
+        return queryset.filter(user = self.owner).prefetch_related('products')
         
         
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = {'data':super().get_context_data(**kwargs),
+                   'user':self.owner,
                    }
         return context
 

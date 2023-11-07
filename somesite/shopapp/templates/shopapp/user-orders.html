@@ -2,7 +2,7 @@
 {% load cache %}
 
 {% block title %}
-    User №{{ request.user.pk }} Orders 
+    User №{{ user.pk }} Orders 
 {% endblock %}
 
 {% block body %}
@@ -13,10 +13,10 @@
 
 
     <section>
-        <h2>Имя пользователя: {{ request.user }}</h2>
+        <h2>Имя пользователя: {{ user }}</h2>
         <p>Заказы:</p> 
         
-        {% cache 300 orderinfo request.user.pk %}
+        {% cache 300 orderinfo user.pk %}
         
         {% if data.object_list %}
             {% for order_data in data.object_list %}
