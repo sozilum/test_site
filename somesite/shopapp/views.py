@@ -344,15 +344,17 @@ class UserOrderListView(LoginRequiredMixin, ListView):
     template_name = 'shopapp/user-orders.html'
     model = Order
     
-    def get_queryset(self) -> QuerySet[Any]:
+    def get_queryset(self, **kwargs) -> QuerySet[Any]:
+        self.queryset_kwargs = kwargs
         queryset = super().get_queryset()
-        self.owner = self.request.user
-        return queryset.filter(user = self.owner).prefetch_related('products')
-        
-        
+        return queryset.filter(user = self.request.user).prefetch_related('products')
+
+
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = {'data':super().get_context_data(**kwargs),
-                   'user':self.owner,
+                   'user':self.request.user,
+                   'query_kwargs': self.queryset_kwargs,
+                   'context_kwargs':kwargs,
                    }
         return context
 
