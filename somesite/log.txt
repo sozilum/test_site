@@ -3269,3 +3269,1090 @@ django.core.exceptions.ImproperlyConfigured: UserOrderListView is missing a Quer
 2023-11-08 20:46:41,680 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-11-08 20:48:08,090 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
 2023-11-08 20:48:16,159 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 16:53:45,165 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 16:58:11,567 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 16:58:17,671 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:00:55,052 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:01:01,440 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:01:12,756 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 57, in render
+    context = make_context(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/context.py", line 278, in make_context
+    raise TypeError(
+TypeError: context must be a dict rather than __proxy__.
+2023-11-14 17:01:42,494 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:01:49,694 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:03:03,507 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:03:10,418 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:03:54,418 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:04:01,295 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:05:04,100 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:05:10,186 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:06:37,474 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:06:44,192 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:06:53,165 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 359, in get_context_data
+    return reverse('shopapp:user_orders', pk=kwargs['pk'],kwargs = context)
+KeyError: 'pk'
+2023-11-14 17:07:06,455 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:07:13,165 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:07:18,476 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 359, in get_context_data
+    return reverse('shopapp:user_orders', pk=1,kwargs = context)
+TypeError: reverse() got an unexpected keyword argument 'pk'
+2023-11-14 17:08:16,073 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:08:22,882 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:08:35,690 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:08:42,824 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:08:49,372 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 359, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'pk': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7f48bf9494b0>}, 'user': <SimpleLazyObject: <User: verghil>>, 'query_kwargs': {}, 'context_kwargs': {}}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<pk>[0-9]+)/orders/\\Z']
+2023-11-14 17:09:23,534 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:09:31,406 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:09:40,311 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 359, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7f1d82f59e70>}, 'user': <SimpleLazyObject: <User: verghil>>, 'query_kwargs': {}, 'context_kwargs': {}}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:10:08,320 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:10:16,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:10:24,132 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 360, in get_context_data
+    'user_id':self.request.user.user_id,
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'User' object has no attribute 'user_id'
+2023-11-14 17:10:31,190 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:10:39,004 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:10:45,091 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 359, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7f9460709390>}, 'user': <SimpleLazyObject: <User: verghil>>, 'query_kwargs': {}, 'context_kwargs': {}}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:12:20,938 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:12:27,435 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:12:34,235 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 354, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7ff60588c370>}}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:13:42,716 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 354, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7ff5f7f6c220>}}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:15:51,046 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:15:58,931 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:16:03,261 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:16:09,923 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:16:14,369 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 356, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet []>, 'order_list': <QuerySet []>, 'view': <shopapp.views.UserOrderListView object at 0x7f2f761289d0>}, 'page_owner': None}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:16:29,342 [WARNING] django.request: Not Found: /ru/shop/users/
+2023-11-14 17:17:00,372 [ERROR] django.request: Internal Server Error: /ru/shop/users/7/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 356, in get_context_data
+    return reverse('shopapp:user_orders', kwargs={
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'user_id': 1, 'context': {'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet []>, 'order_list': <QuerySet []>, 'view': <shopapp.views.UserOrderListView object at 0x7f2f744ac820>}, 'page_owner': None}}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 17:17:49,382 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:17:57,571 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:19:11,881 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/urls.py changed, reloading.
+2023-11-14 17:19:18,393 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:20:02,519 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:20:09,208 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:20:16,536 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    self.owner[1] = 'два'
+TypeError: 'NoneType' object does not support item assignment
+2023-11-14 17:20:16,541 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    self.owner[1] = 'два'
+TypeError: 'NoneType' object does not support item assignment
+2023-11-14 17:20:23,231 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 353, in get_context_data
+    self.owner[1] = 'два'
+TypeError: 'NoneType' object does not support item assignment
+2023-11-14 17:21:22,478 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:21:30,847 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:22:20,379 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:22:26,666 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:22:31,374 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 350, in get_queryset
+    return queryset.filter(user = self.owner).prefetch_related('products')
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1534, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1565, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1480, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1307, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/fields/related_lookups.py", line 166, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got [None].
+2023-11-14 17:23:05,941 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:23:15,398 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:23:22,233 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:23:28,759 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:23:34,386 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 350, in get_queryset
+    return queryset.filter(user = self.request.user_id).prefetch_related('products')
+AttributeError: 'WSGIRequest' object has no attribute 'user_id'
+2023-11-14 17:23:50,099 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:23:57,503 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:31:12,849 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:31:19,596 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:31:27,630 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 358, in get_context_data
+    return reverse(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7fab5db7fc10>}, 'page_onwer': [None, '1']}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<pk>[0-9]+)/orders/\\Z']
+2023-11-14 17:31:29,626 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 358, in get_context_data
+    return reverse(
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'data': {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'order_list': <QuerySet [<Order: Order object (1)>, <Order: Order object (2)>, <Order: Order object (3)>, <Order: Order object (4)>, <Order: Order object (6)>, <Order: Order object (7)>]>, 'view': <shopapp.views.UserOrderListView object at 0x7fab5c0bc6a0>}, 'page_onwer': [None, '1']}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<pk>[0-9]+)/orders/\\Z']
+2023-11-14 17:34:34,947 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:34:42,626 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:40:42,247 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:40:49,605 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:41:17,949 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:41:23,841 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:42:03,780 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:42:11,144 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:46:11,673 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:46:17,618 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:47:01,220 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:47:07,928 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:47:54,290 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:48:00,384 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:48:44,030 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/urls.py changed, reloading.
+2023-11-14 17:48:52,771 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:48:56,778 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:49:03,384 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:50:29,404 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:50:36,877 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:51:14,025 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:51:21,693 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 17:51:33,262 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 17:51:39,872 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:03:57,237 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:04:04,705 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:05:12,761 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:05:19,127 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:05:23,939 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:05:29,832 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:07:05,222 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:07:12,473 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:07:22,367 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+TypeError: UserOrderListView.get_queryset() missing 1 required positional argument: 'user_id'
+2023-11-14 18:07:24,099 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+TypeError: UserOrderListView.get_queryset() missing 1 required positional argument: 'user_id'
+2023-11-14 18:07:50,325 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:07:57,383 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:08:02,042 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+TypeError: UserOrderListView.get_queryset() missing 1 required positional argument: 'user_id'
+2023-11-14 18:08:26,647 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:08:33,561 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:08:38,589 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:08:45,486 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:08:56,731 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:09:04,504 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:09:20,587 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner.append(kwargs)
+NameError: name 'kwargs' is not defined
+2023-11-14 18:09:20,688 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner.append(kwargs)
+NameError: name 'kwargs' is not defined
+2023-11-14 18:09:20,935 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner.append(kwargs)
+NameError: name 'kwargs' is not defined
+2023-11-14 18:09:21,040 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner.append(kwargs)
+NameError: name 'kwargs' is not defined
+2023-11-14 18:09:22,758 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner.append(kwargs)
+NameError: name 'kwargs' is not defined
+2023-11-14 18:09:31,093 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:09:38,873 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:09:59,528 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-14 18:10:07,021 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:12:04,561 [WARNING] django.request: Not Found: /ru/
+2023-11-14 18:12:10,540 [WARNING] django.request: Not Found: /ru/accounts/
+2023-11-14 18:14:10,972 [ERROR] django.request: Internal Server Error: /ru/accounts/about_me/1/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_orders' with keyword arguments '{'pk': 1}' not found. 1 pattern(s) tried: ['ru/shop/users/(?P<user_id>[0-9]+)/orders/\\Z']
+2023-11-14 18:15:09,751 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/urls.py changed, reloading.
+2023-11-14 18:15:17,105 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-14 18:18:03,129 [WARNING] django.request: Not Found: /ru/shop/users/
+2023-11-14 18:18:07,927 [INFO] shopapp.views: Rendering shop index
+2023-11-16 18:13:16,646 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:13:37,095 [WARNING] django.request: Not Found: /
+2023-11-16 18:13:52,899 [WARNING] django.request: Not Found: /ru/accounts/
+2023-11-16 18:13:58,326 [WARNING] django.request: Not Found: /ru/accounts/about_me/
+2023-11-16 18:14:31,767 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:14:38,185 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:14:45,484 [WARNING] django.request: Forbidden (Permission denied): /ru/accounts/about_me/1/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 134, in dispatch
+    return self.handle_no_permission()
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 48, in handle_no_permission
+    raise PermissionDenied(self.get_permission_denied_message())
+django.core.exceptions.PermissionDenied
+2023-11-16 18:14:55,319 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:15:02,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:15:07,327 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:15:13,969 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:17:54,605 [ERROR] django.request: Internal Server Error: /ru/accounts/registration/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 58, in form_valid
+    response = super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 121, in get_success_url
+    if self.success_url:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about_me' with no arguments not found. 1 pattern(s) tried: ['ru/accounts/about_me/(?P<pk>[0-9]+)/\\Z']
+2023-11-16 18:23:07,145 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:23:13,444 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:25:19,686 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:25:25,570 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:25:55,981 [ERROR] django.request: Internal Server Error: /ru/accounts/registration/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 59, in form_valid
+    super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 121, in get_success_url
+    if self.success_url:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about_me' with no arguments not found. 1 pattern(s) tried: ['ru/accounts/about_me/(?P<pk>[0-9]+)/\\Z']
+2023-11-16 18:26:23,479 [WARNING] django.request: Not Found: /ru/accounts/about_me/
+2023-11-16 18:30:43,551 [WARNING] django.request: Not Found: /ru/accounts/about_me/
+2023-11-16 18:30:50,428 [WARNING] django.request: Not Found: /ru/accounts/about_me/2/
+2023-11-16 18:36:19,476 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:36:26,116 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:37:47,823 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:37:53,976 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:38:55,630 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:39:01,738 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:39:31,102 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 18:39:37,508 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:54:10,401 [WARNING] django.request: Not Found: /ru/shop/users/
+2023-11-16 18:54:18,087 [WARNING] django.request: Not Found: /ru/shop/users/1/orders/
+2023-11-16 18:54:43,996 [WARNING] django.request: Not Found: /ru/shop/users/2/orders/
+2023-11-16 18:55:01,084 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:55:07,877 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:55:12,686 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 354, in get_queryset
+    return super().get_queryset().filter(user_id=self.owner)
+AttributeError: 'UserOrderListView' object has no attribute 'owner'
+2023-11-16 18:56:04,540 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:56:11,153 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:56:23,691 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 354, in get_queryset
+    return super().get_queryset().filter(user_id=self.order_user)
+AttributeError: 'UserOrderListView' object has no attribute 'order_user'
+2023-11-16 18:56:24,552 [WARNING] django.request: Not Found: /favicon.ico
+2023-11-16 18:57:29,301 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:57:35,988 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:57:51,860 [WARNING] django.request: Not Found: /ru/shop/users/1/orders/
+2023-11-16 18:58:09,392 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:58:16,281 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:58:20,905 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 354, in get_queryset
+    return super().get_queryset().filter(user_id=self.order_user)
+AttributeError: 'UserOrderListView' object has no attribute 'order_user'
+2023-11-16 18:58:36,805 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:58:44,772 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:58:49,446 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 358, in get_context_data
+    'page_owner':self.order_user}
+AttributeError: 'UserOrderListView' object has no attribute 'order_user'
+2023-11-16 18:59:34,595 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 18:59:41,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 18:59:48,073 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 350, in get_queryset
+    self.order_user = User.objects.get(pk = user_id)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+2023-11-16 18:59:49,298 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 350, in get_queryset
+    self.order_user = User.objects.get(pk = user_id)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+2023-11-16 19:00:25,601 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:00:32,548 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:00:58,374 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:01:05,291 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:01:28,407 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:01:35,263 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:01:39,383 [WARNING] django.request: Not Found: /favicon.ico
+2023-11-16 19:02:04,367 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:02:10,675 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:02:45,750 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:02:53,428 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:03:47,723 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:03:54,453 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:05:38,176 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:05:45,197 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:06:23,334 [ERROR] django.request: Internal Server Error: /ru/shop/users/11/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    self.owner = User.objects.get(pk=self.owner_pk)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+2023-11-16 19:07:44,246 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:07:50,955 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:08:05,495 [ERROR] django.request: Internal Server Error: /ru/shop/users/11/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 348, in get_queryset
+    if User.objects.get(pk = self.owner_pk):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+2023-11-16 19:08:40,547 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:08:46,827 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:09:09,455 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:09:16,317 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:09:26,674 [ERROR] django.request: Internal Server Error: /ru/shop/users/11/orders/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/verghil/Desktop/python_django/somesite/shopapp/views.py", line 349, in get_queryset
+    self.owner = User.objects.get(pk=self.owner_pk)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+2023-11-16 19:10:59,920 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:11:06,198 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:11:33,330 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:11:39,764 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:11:48,934 [WARNING] django.request: Not Found: /ru/shop/users/11/orders/
+2023-11-16 19:12:14,269 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:12:21,104 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:12:33,612 [WARNING] django.request: Not Found: /ru/shop/users1/orders/
+2023-11-16 19:12:38,603 [WARNING] django.request: Not Found: /ru/shop/users/11/orders/
+2023-11-16 19:12:44,564 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:12:51,226 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:13:37,706 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 19:13:44,423 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:14:01,739 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 19:14:07,880 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:14:37,216 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/urls.py changed, reloading.
+2023-11-16 19:14:45,789 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:14:52,262 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:14:58,698 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:15:10,534 [WARNING] django.request: Not Found: /ru/shop/users/11/orders/
+2023-11-16 19:16:39,007 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 19:16:45,012 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:20:43,776 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:20:51,829 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:20:55,971 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/shopapp/views.py changed, reloading.
+2023-11-16 19:21:02,322 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:23:59,231 [WARNING] django.request: Not Found: /ru/accounts/about_me/
+2023-11-16 19:24:09,234 [ERROR] django.request: Internal Server Error: /ru/accounts/about_me/1/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 132, in dispatch
+    user_test_result = self.get_test_func()()
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 42, in test_func
+    if self.get_object().pk == self.request.user.profiel.pk or self.request.user.is_staff or self.request.user.is_superuser:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.profiel.RelatedObjectDoesNotExist: User has no profiel.
+2023-11-16 19:24:38,082 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 19:24:44,669 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-16 19:25:00,149 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-16 19:25:08,009 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

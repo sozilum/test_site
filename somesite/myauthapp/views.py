@@ -39,7 +39,7 @@ class AboutMeView(UserPassesTestMixin, UpdateView):
     fields = ['profile_image']
 
     def test_func(self) -> bool | None:
-        if self.get_object().pk == self.request.user or self.request.user.is_staff or self.request.user.is_superuser:
+        if self.get_object() == self.request.user or self.request.user.is_staff or self.request.user.is_superuser:
             return True
         return False
 
@@ -55,19 +55,20 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('authapp:about_me')
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        response = super().form_valid(form)
+        super().form_valid(form)
         Profiel.objects.create(user = self.object)
 
         username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password1')
+        password = form.cleaned_data.get('password')
         user = authenticate(self.request, 
                             username = username,
                             password = password
                             )
         login(request=self.request, user=user)
         
-        return response
-
+        return reverse('authapp:about_me',
+                       kwargs={'pk':user.pk},
+                       )
 
 class UsersListView(ListView):
     template_name = 'myauthapp/users_list.html'

@@ -19,11 +19,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django_filters.rest_framework import DjangoFilterBackend
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
+from django.contrib.auth.models import Group, User
 from django.contrib.syndication.views import Feed
 from django.forms.models import BaseModelForm
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import Group
-from django.urls import reverse_lazy
 from django.core.cache import cache
 from django.http import Http404
 from django.views import View
@@ -220,7 +220,6 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
             return True
         return False
     
-
     #Так можно указать кастомный суфикс страницы и туда пересылать
     template_name_suffix = '_update_form'
 
@@ -344,19 +343,22 @@ class UserOrderListView(LoginRequiredMixin, ListView):
     template_name = 'shopapp/user-orders.html'
     model = Order
     
-    def get_queryset(self, **kwargs) -> QuerySet[Any]:
-        self.queryset_kwargs = kwargs
-        queryset = super().get_queryset()
-        return queryset.filter(user = self.request.user).prefetch_related('products')
+    def get_queryset(self) -> QuerySet[Any]:
+        try:
+            self.owner_pk = self.request.resolver_match.kwargs['user_id']
+            self.owner = User.objects.get(pk=self.owner_pk)
+            queryset = super().get_queryset()
+            return queryset.filter(user = self.owner).prefetch_related('products')
 
+        except:
+            raise Http404()
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = {'data':super().get_context_data(**kwargs),
-                   'user':self.request.user,
-                   'query_kwargs': self.queryset_kwargs,
-                   'context_kwargs':kwargs,
-                   }
+                   'page_owner':self.owner}
+        
         return context
+    
 
 
 class UserOrderExportView(LoginRequiredMixin, View):

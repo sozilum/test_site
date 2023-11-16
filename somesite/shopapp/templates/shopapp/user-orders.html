@@ -13,9 +13,7 @@
 
 
     <section>
-        <h2>Имя пользователя: {{ user }}</h2>
-        <h2>kwargs из query_set {{ query_kwargs }}</h2>
-        <h2>kwargs из context {{ context_kwargs }}</h2>
+        <h2>Владелец страницы: {{ page_owner }}</h2>
         <p>Заказы:</p> 
         
         {% cache 300 orderinfo user.pk %}
