@@ -39,7 +39,7 @@ class AboutMeView(UserPassesTestMixin, UpdateView):
     fields = ['profile_image']
 
     def test_func(self) -> bool | None:
-        if self.get_object() == self.request.user or self.request.user.is_staff or self.request.user.is_superuser:
+        if self.get_object().pk == self.request.user.profiel.pk or self.request.user.is_staff or self.request.user.is_superuser:
             return True
         return False
 

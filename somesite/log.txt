@@ -4356,3 +4356,107 @@ django.contrib.auth.models.User.profiel.RelatedObjectDoesNotExist: User has no p
 2023-11-16 19:24:44,669 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-11-16 19:25:00,149 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
 2023-11-16 19:25:08,009 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-19 21:42:59,892 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-19 21:43:26,700 [WARNING] django.request: Not Found: /
+2023-11-19 21:43:36,838 [WARNING] django.request: Not Found: /ru/accounts/
+2023-11-19 21:45:01,745 [ERROR] django.request: Internal Server Error: /ru/accounts/registration/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 58, in form_valid
+    super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 121, in get_success_url
+    if self.success_url:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about_me' with no arguments not found. 1 pattern(s) tried: ['ru/accounts/about_me/(?P<pk>[0-9]+)/\\Z']
+2023-11-19 21:45:55,147 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-19 21:46:01,844 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-19 21:46:15,567 [ERROR] django.request: Internal Server Error: /ru/accounts/registration/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 58, in form_valid
+    super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 121, in get_success_url
+    if self.success_url:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about_me' with no arguments not found. 1 pattern(s) tried: ['ru/accounts/about_me/(?P<pk>[0-9]+)/\\Z']
+2023-11-19 21:46:37,239 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-19 21:46:43,392 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-19 21:47:48,466 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-19 21:47:55,098 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-19 21:48:12,221 [ERROR] django.request: Internal Server Error: /ru/accounts/registration/
+Traceback (most recent call last):
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/verghil/Desktop/python_django/somesite/myauthapp/views.py", line 58, in form_valid
+    super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/views/generic/edit.py", line 121, in get_success_url
+    if self.success_url:
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/utils/functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/verghil/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'about_me' with no arguments not found. 1 pattern(s) tried: ['ru/accounts/about_me/(?P<pk>[0-9]+)/\\Z']
+2023-11-19 21:48:36,123 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/myauthapp/views.py changed, reloading.
+2023-11-19 21:48:43,042 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
