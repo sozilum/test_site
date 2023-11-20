@@ -1,8 +1,8 @@
 from typing import Any
 from django import http
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from django.http import HttpRequest, HttpResponse, JsonResponse, HttpResponseRedirect
 from django.views.generic import CreateView, UpdateView, ListView
-from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.utils.translation import gettext as _, ngettext
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -55,20 +55,20 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('authapp:about_me')
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        super().form_valid(form)
-        Profiel.objects.create(user = self.object)
+        user = form.save()
+        Profiel.objects.create(user = user)
 
         username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
+        password = form.cleaned_data.get('password1')
         user = authenticate(self.request, 
                             username = username,
                             password = password
                             )
         login(request=self.request, user=user)
         
-        return reverse('authapp:about_me',
-                       kwargs={'pk':user.pk},
-                       )
+        return HttpResponseRedirect(reverse('authapp:about_me', kwargs={
+            'pk':int(self.request.user.profiel.pk)
+        }))
 
 class UsersListView(ListView):
     template_name = 'myauthapp/users_list.html'
