@@ -4,15 +4,26 @@ services:
   app:
     build:
       dockerfile: ./Dockerfile
-    command: 
-      - "python3"
-      - "manage.py"
-      - "runserver"
-      - "0.0.0.0:8080"
+    command:
+      - gunicorn
+      - somesite.wsgi:application
+      - --bind
+      - 0.0.0.0:8000
     ports:
-      - "8000:8080"
+      - "8000:8000"
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./somesite/database:/app/database
+    # logging:
+    #   driver: "json-file"
+    #   options: 
+    #     max-file: "10"
+    #     max-size: "200k"
+
     logging:
-      driver: loki
+      driver: "loki"
       options:
         # loki-url: http://localhost:3100/loki/api/v1/push
         loki-url: http://host.docker.internal:3100/loki/api/v1/push

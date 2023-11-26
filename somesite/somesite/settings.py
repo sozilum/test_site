@@ -12,9 +12,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 from pathlib import Path
+from os import getenv
+import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#Задание базовой дерриктории для базы данных
+DATABASE_DIR = BASE_DIR / "database"
+#Если папка существует не будет ошибки
+DATABASE_DIR.mkdir(exist_ok=True)
+
 
 import sentry_sdk
 
@@ -29,15 +36,20 @@ sentry_sdk.init(
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x60_dzrn=ma(+njiqg!t!8_+pm3&wtkp^9-j-4d=b*h&#v6i$('
+SECRET_KEY = getenv(
+    "DJANGO_SECRET_KEY",
+    'django-insecure-x60_dzrn=ma(+njiqg!t!8_+pm3&wtkp^9-j-4d=b*h&#v6i$('
+)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv("DJANGO_DEBUG", 0) == "1"
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1'
-]
+] + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+
 INTERNAL_IPS =[
     '127.0.0.1'
 ]
@@ -66,7 +78,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'django_filters',
-    'drf_spectacular',
+    # 'drf_spectacular',
 
     'shopapp.apps.ShopappConfig',
     'requestdataapp.apps.RequestdataappConfig',
@@ -120,7 +132,7 @@ WSGI_APPLICATION = 'somesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': DATABASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -194,6 +206,33 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = reverse_lazy('authapp:users_list')
 LOGIN_URL = reverse_lazy('authapp:login')
+
+# # Простое логирование 
+# LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper()
+# logging.config.dictConfig({
+#     "version":1,
+#     "disable_existing_loggers":False,
+#     "formatters":{
+#         "console":{
+#             "format":"%(asctime)s %(levelname)s [%(name)s:%(lineno)s] %(module)s %(message)s",
+#         },
+#     },
+#     "handlers":{
+#         "console":{
+#             "class": "logging.StreamHandler",
+#             "formatter": "console",
+#         },
+#     },
+#     "loggers":{
+#         "":{
+#             "level":LOGLEVEL,
+#             "handlers":[
+#                 "console",
+#             ],
+#         },
+#     },
+# })
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
