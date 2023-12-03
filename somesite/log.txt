@@ -4477,3 +4477,11 @@ Traceback (most recent call last):
   File "/home/verghil/.local/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 48, in handle_no_permission
     raise PermissionDenied(self.get_permission_denied_message())
 django.core.exceptions.PermissionDenied
+2023-11-30 21:45:40,758 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-30 21:49:41,327 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-30 22:03:54,588 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-30 22:06:35,052 [INFO] django.utils.autoreload: /home/verghil/Desktop/python_django/somesite/somesite/settings.py changed, reloading.
+2023-11-30 22:06:41,977 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-11-30 22:08:01,168 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-12-03 18:21:13,539 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-12-03 18:26:15,102 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
