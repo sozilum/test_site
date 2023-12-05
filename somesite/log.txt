@@ -4495,3 +4495,9 @@ django.core.exceptions.PermissionDenied
 2023-12-03 19:22:42,237 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-12-03 19:24:14,833 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-12-03 19:49:46,446 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-12-05 20:52:30,092 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-12-05 20:52:35,391 [WARNING] django.request: Not Found: /
+2023-12-05 21:01:58,870 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-12-05 21:02:05,308 [WARNING] django.request: Not Found: /
+2023-12-05 21:36:39,490 [WARNING] django.request: Not Found: /
+2023-12-05 21:36:46,112 [INFO] shopapp.views: Rendering shop index

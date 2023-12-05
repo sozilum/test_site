@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
+from os import getenv
 from pathlib import Path
 import logging.config
 
@@ -35,16 +36,19 @@ sentry_sdk.init(
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x60_dzrn=ma(+njiqg!t!8_+pm3&wtkp^9-j-4d=b*h&#v6i$('
+SECRET_KEY = (
+    'DJANGO_SECRET_KEY',
+    'django-insecure-x60_dzrn=ma(+njiqg!t!8_+pm3&wtkp^9-j-4d=b*h&#v6i$(',
+    )
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 1
+DEBUG = getenv('DJANGO_DEBUG', '0') == '1'
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1'
-]# + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+] + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 INTERNAL_IPS =[
     '127.0.0.1'
